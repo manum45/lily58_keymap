@@ -8,8 +8,7 @@ enum layer_number {
 };
 
 /// TODO:
-// - Numpad
-// - Better Special Chars
+// - Gaming mode? everything one to the right or space one to the left. arrow keys without layers
 
 // workaround for dead keys, see:
 // https://github.com/davidramiro/km96-usintl-de/blob/master/keymap.c
@@ -38,8 +37,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Tab  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  =   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | LCTRL|   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
- * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
- * | LCTRL|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |RShift|
+ * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
+ * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |RShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LGUI | LAlt |LOWER | /Space  /       \Enter \  |RAISE |BackSP|      |
  *                   |      |      |      |/       /         \      \ |      |      |      |
@@ -50,39 +49,39 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                     MC_6CIRC,KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
   KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
   KC_LCTL,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, MC_QUOT,
-  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_LBRC,  KC_RBRC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, XXXXXXX,  XXXXXXX,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
                         KC_LGUI, KC_LALT, MO(_LOWER), KC_SPC, KC_ENT, MO(_RAISE), KC_BSPC, XXXXXXX
 ),
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * |      |      |      |      |      |      |                    |      |      |      |      |      |  ß   |
+ * |      |      |      |      |      |      |                    |  KP/ | KP7  | KP8  | KP9  |  €   |  ß   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |  €   |      |      |                    |      |      |      |      |      |  Ü   |
+ * |      |      |      |      |      |      |                    |  KP* | KP4  | KP5  | KP6  |      |  Ü   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | LCTRL|      |      |      |      |      |-------.    ,-------|      |      |      |      |  Ö   |  Ä   |
+ * | LCTRL|      |  F5  |  F6  |  F7  | F8   |-------.    ,-------|  KP- | KP1  | KP2  | KP3  |  Ö   |  Ä   |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |LShift|      |      |      |      |      |-------|    |-------|      |      |      |      |  \   |  , ~ |
+ * |LShift|      |      |      |      |      |-------|    |-------|  KP+ | KP0  |      | KP.  |      |RShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LGUI | LAlt |LOWER | /Space  /       \Enter \  |RAISE |BackSP|      |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
 [_LOWER] = LAYOUT(
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   RALT(KC_S),
-  XXXXXXX, XXXXXXX, XXXXXXX, RALT(KC_5),XXXXXXX,XXXXXXX,                  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   RALT(KC_Y),
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RALT(KC_P),RALT(KC_Q),
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_BSLS,   MC_GRV,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_PSLS, KC_P7,   KC_P8,   KC_P9,   RALT(KC_5),RALT(KC_S),
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_PAST, KC_P4,   KC_P5,   KC_P6,   XXXXXXX,   RALT(KC_Y),
+  _______, XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,                     KC_PMNS, KC_P1,   KC_P2,   KC_P3,   RALT(KC_P),RALT(KC_Q),
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PPLS, KC_P0,   XXXXXXX, KC_PDOT, XXXXXXX,   _______,
                              _______, _______, _______, _______, _______,  _______, _______, _______
 ),
 /* RAISE
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |  F12 |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |  F7  |  F8  |  F9  | F10  | F11  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |PrntSc|      |                    |      |      |      | Del  |VolDow|VolUp |
+ * |PrntSc|      |  \   |  (   |  )   |      |                    |      |      |      | Del  |VolDow|VolUp |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | LCTRL|      |      |      |      |      |-------.    ,-------| Left | Down |  Up  |Right |Pause |Next  |
+ * | LCTRL|      | ` ~  |  [   |  ]   |      |-------.    ,-------| Left | Down |  Up  |Right |Pause |Next  |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |LShift|      |      |      |      |      |-------|    |-------|      | Home |      | End  |      |      |
+ * |LShift|      |  -   |  {   |  }   |      |-------|    |-------|      | Home |      | End  |      |RShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LGUI | LAlt |LOWER | /Space  /       \Enter \  |RAISE |BackSP|      |
  *                   |      |      |      |/       /         \      \ |      |      |      |
@@ -90,11 +89,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_RAISE] = LAYOUT(
-  KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                       KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PSCR, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, KC_DEL,  KC_VOLD, KC_VOLU,
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_MPLY, KC_MNXT,
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, KC_HOME, XXXXXXX, KC_END,  XXXXXXX, XXXXXXX,
-                             _______, _______, _______,  _______, _______,  _______, _______, _______
+  KC_F12,  KC_F1,   KC_F2,   KC_F3,     KC_F4,     KC_F5,                      KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
+  KC_PSCR, XXXXXXX, KC_BSLS, S(KC_9),   S(KC_0),   XXXXXXX,                    XXXXXXX, XXXXXXX, XXXXXXX, KC_DEL,  KC_VOLD, KC_VOLU,
+  _______, XXXXXXX, MC_GRV,  KC_LBRC,   KC_RBRC,   XXXXXXX,                    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_MPLY, KC_MNXT,
+  _______, XXXXXXX, KC_MINS, S(KC_LBRC),S(KC_RBRC),XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX, KC_HOME, XXXXXXX, KC_END,  XXXXXXX, _______,
+                             _______,   _______,   _______, _______, _______,  _______, _______, _______
 ),
 /* ADJUST
  * ,-----------------------------------------.                    ,-----------------------------------------.
