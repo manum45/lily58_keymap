@@ -5,10 +5,12 @@ enum layer_number {
   _LOWER,
   _RAISE,
   _ADJUST,
+  _GAMING,
 };
 
 /// TODO:
 // - Gaming mode? everything one to the right or space one to the left. arrow keys without layers
+// - tap hold umlauts? https://docs.qmk.fm/tap_hold -> requires gaming mode for WASD to work
 
 // workaround for dead keys, see:
 // https://github.com/davidramiro/km96-usintl-de/blob/master/keymap.c
@@ -59,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |      |                    |  KP* | KP4  | KP5  | KP6  |      |  Ü   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | LCTRL|      |  F5  |  F6  |  F7  | F8   |-------.    ,-------|  KP- | KP1  | KP2  | KP3  |  Ö   |  Ä   |
- * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
+ * |------+------+------+------+------+------|       |    |TG GAME|------+------+------+------+------+------|
  * |LShift|      |      |      |      |      |-------|    |-------|  KP+ | KP0  |      | KP.  |      |RShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LGUI | LAlt |LOWER | /Space  /       \Enter \  |RAISE |BackSP|      |
@@ -70,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_PSLS, KC_P7,   KC_P8,   KC_P9,   RALT(KC_5),RALT(KC_S),
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_PAST, KC_P4,   KC_P5,   KC_P6,   XXXXXXX,   RALT(KC_Y),
   _______, XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,                     KC_PMNS, KC_P1,   KC_P2,   KC_P3,   RALT(KC_P),RALT(KC_Q),
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PPLS, KC_P0,   XXXXXXX, KC_PDOT, XXXXXXX,   _______,
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,TG(_GAMING),KC_PPLS,KC_P0,  XXXXXXX, KC_PDOT, XXXXXXX,   _______,
                              _______, _______, _______, _______, _______,  _______, _______, _______
 ),
 /* RAISE
@@ -109,13 +111,39 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
-  [_ADJUST] = LAYOUT(
+[_ADJUST] = LAYOUT(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                             _______, _______, _______, _______, _______,  _______, _______, _______
-  )
+                              _______, _______, _______, _______, _______,  _______, _______, _______
+),
+
+
+
+
+/* Gaming
+ * ,-----------------------------------------.                    ,-----------------------------------------.
+ * |   5  | ESC  |   1  |   2  |   3  |   4  |                    |   6  |   7  |   8  |   9  |   0  |  -   |
+ * |------|------+------+------+------+------+                    |------+------+------+------+------+------|
+ * |   T  | Tab  |   Q  |   W  |   E  |   R  |                    |   Y  |   U  |   I  |   O  |   P  |  =   |
+ * |------|------+------+------+------+------+                    |------+------+------+------+------+------|
+ * |   G  |LShift|   A  |   S  |   D  |   F  |-------.    ,-------|   H  |   J  |  Up  |   L  |   ;  |  '   |
+ * |------|------+------+------+------+------+       |    |TG QWRT|------+------+------+------+------+------|
+ * |   B  |LCTRL |   Z  |   X  |   C  |   V  |-------|    |-------|   N  | Left | Down | Right|   M  |RShift|
+ * `-----------------------------------------/       /     \      \-----------------------------------------'
+ *                   | LGUI | LAlt |LOWER | /Space  /       \Enter \  |RAISE |BackSP|      |
+ *                   |      |      |      |/       /         \      \ |      |      |      |
+ *                   `----------------------------'           '------''--------------------'
+ */
+
+ [_GAMING] = LAYOUT(
+  KC_5,  KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,                         MC_6CIRC,KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
+  KC_T,  KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
+  KC_G,  KC_LSFT,  KC_A,   KC_S,    KC_D,    KC_F,                         KC_H,    KC_J,    KC_UP,   KC_L,    KC_SCLN, MC_QUOT,
+  KC_B,  KC_LCTL,  KC_Z,   KC_X,    KC_C,    KC_V,   XXXXXXX, TG(_GAMING), KC_N,   KC_LEFT, KC_DOWN, KC_RGHT, KC_M   , KC_RSFT,
+                        KC_LGUI, KC_LALT,   XXXXXXX, KC_SPC, KC_ENT, XXXXXXX, KC_BSPC, XXXXXXX
+),
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
