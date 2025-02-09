@@ -40,6 +40,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_SAT_STEP 17
 #define RGBLIGHT_VAL_STEP 17
 
+// custom
+// https://docs.qmk.fm/config_options
+
+// Reboot slave if no communication from master within timeout.
+// Helps resolve issue where both sides detect as slave using SPLIT_USB_DETECT
+#define SPLIT_WATCHDOG_ENABLE
+
 // Underglow
 /*
 #undef RGBLIGHT_LED_COUNT
