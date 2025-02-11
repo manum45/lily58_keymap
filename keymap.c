@@ -9,8 +9,9 @@ enum layer_number {
 };
 
 /// TODO:
-// - Gaming mode? everything one to the right or space one to the left. arrow keys without layers
-// - tap hold umlauts? https://docs.qmk.fm/tap_hold -> requires gaming mode for WASD to work
+// - tap hold umlauts? https://docs.qmk.fm/tap_hold
+//   -> https://docs.qmk.fm/features/tap_dance#example-3
+//   or double tap is easier? https://docs.qmk.fm/features/tap_dance#simple-example
 
 // workaround for dead keys, see:
 // https://github.com/davidramiro/km96-usintl-de/blob/master/keymap.c
