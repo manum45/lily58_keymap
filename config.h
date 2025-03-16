@@ -68,7 +68,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Right-hand home row mods
 #define CTL_J RCTL_T(KC_J)
-#define SFT_ RSFT_T(KC_K)
+#define SFT_K RSFT_T(KC_K)
 #define ALT_L LALT_T(KC_L)
 
 
