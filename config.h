@@ -20,9 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#define QUICK_TAP_TERM 0
-#define TAPPING_TERM 100
-
 #undef RGBLIGHT_LED_COUNT
 #define RGBLIGHT_EFFECT_BREATHING
 #define RGBLIGHT_EFFECT_RAINBOW_MOOD
@@ -53,3 +50,25 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_LED_COUNT 14    // Number of LEDs
 #define RGBLIGHT_SLEEP
 */
+
+
+// Configure the global tapping term (default: 200ms)
+#define TAPPING_TERM 200
+
+// Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
+#define QUICK_TAP_TERM 0
+
+
+
+
+// Left-hand home row mods
+#define ALT_S LALT_T(KC_S)
+#define SFT_D LSFT_T(KC_D)
+#define CTL_F LCTL_T(KC_F)
+
+// Right-hand home row mods
+#define CTL_J RCTL_T(KC_J)
+#define SFT_ RSFT_T(KC_K)
+#define ALT_L LALT_T(KC_L)
+
+
