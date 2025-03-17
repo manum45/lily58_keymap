@@ -62,13 +62,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 // Left-hand home row mods
-#define ALT_S LALT_T(KC_S)
-#define SFT_D LSFT_T(KC_D)
-#define CTL_F LCTL_T(KC_F)
+// #define ALT_S LALT_T(KC_S)
+// #define SFT_D LSFT_T(KC_D)
+// #define CTL_F LCTL_T(KC_F)
 
 // Right-hand home row mods
-#define CTL_J RCTL_T(KC_J)
-#define SFT_K RSFT_T(KC_K)
-#define ALT_L LALT_T(KC_L)
+// #define CTL_J RCTL_T(KC_J)
+// #define SFT_K RSFT_T(KC_K)
+// #define ALT_L LALT_T(KC_L)
 
 
