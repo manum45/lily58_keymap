@@ -40,40 +40,40 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Tab  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  =   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |LCTRL |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |  ;   |  '   |
- * |------+------+------+------+------+------|       |    |BackSP |------+------+------+------+------+------|
+ * |------+------+------+------+------+------|       |    |Enter  |------+------+------+------+------+------|
  * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |RShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LGUI | LAlt |LShift| /Space/ /       \Enter/\    |BackSP|      |      |
- *                   |      |      |      |/ LOWER /         \RAISE \   |      |      |      |
- *                   `----------------------------'           '------''--------------------'
+ *                   | LGUI | LAlt |LOWER | /Space  /       \RAISE \    |BackSP|Enter |      |
+ *                   |      |      |      |/       /         \      \   |      |      |      |
+ *                   `----------------------------'           '------''----------------------'
  */
 
  [_QWERTY] = LAYOUT(
-  KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                                MC_6CIRC,   KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
-  KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                                KC_Y,       KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
-  KC_LCTL,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                                                KC_H,       KC_J,    KC_K,    KC_L,    KC_SCLN, MC_QUOT,
-  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    XXXXXXX,              KC_BSPC,              KC_N,       KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-                             KC_LGUI, KC_LALT, KC_LSFT, LT(_LOWER, KC_SPC),   LT(_RAISE, KC_ENT),   KC_BSPC,    XXXXXXX, XXXXXXX
+  KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                   MC_6CIRC,   KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
+  KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                   KC_Y,       KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
+  KC_LCTL,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                                   KC_H,       KC_J,    KC_K,    KC_L,    KC_SCLN, MC_QUOT,
+  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,       XXXXXXX,       KC_ENT ,      KC_N,       KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+                             KC_LGUI, KC_LALT, MO(_LOWER), KC_SPC,       MO(_RAISE),   KC_BSPC,    KC_ENT,  XXXXXXX
 ),
 /* LOWER - special characters and navigation with mouse
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
+ * |      |      |      |      |      |      |                    |      |      |      |      |   €  |  ß   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |  Tab |      |      |  €   |      |      |                    |      |  Ü   |      |  Ö   |      |      |
+ * |  Tab |      |      |      |      |      |                    |   -  |      |      |      |      |  Ü   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | LCTRL|  Ä   |  ß   |LShift| Ctrl |      |-------.    ,-------|      |  [   |  ]   |  \   |      |      |
+ * | LCTRL|      |  F5  |  F6  |  F7  | F8   |-------.    ,-------|   =  |  [   |  ]   |  \   |   Ö  |  Ä   |
  * |------+------+------+------+------+------|       |    |TG GAME|------+------+------+------+------+------|
- * |LShift|      |  F5  |  F6  |  F7  | F8   |-------|    |-------|      |  {   |  }   | ` ~  |      |RShift|
+ * |LShift|      |      |      |      |      |-------|    |-------|   '  |  {   |  }   | ` ~  |      |RShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LGUI | LAlt |LShift| /Space/ /       \Enter/\    |BackSP|      |      |
- *                   |      |      |      |/ LOWER /         \RAISE \   |      |      |      |
- *                   `----------------------------'           '------''--------------------'
+ *                   | LGUI | LAlt |LOWER | /Space  /       \RAISE \    |BackSP|Enter |      |
+ *                   |      |      |      |/       /         \      \   |      |      |      |
+ *                   `----------------------------'           '------''----------------------'
  */
 [_LOWER] = LAYOUT(
-  XXXXXXX, XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX,                        XXXXXXX, XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX,
-  _______, XXXXXXX,    XXXXXXX,    RALT(KC_5), XXXXXXX, XXXXXXX,                        XXXXXXX, RALT(KC_Y), XXXXXXX,    RALT(KC_P), XXXXXXX, XXXXXXX,
-  _______, RALT(KC_Q), RALT(KC_S), KC_LSFT,    KC_LCTL, XXXXXXX,                        XXXXXXX, KC_LBRC,    KC_RBRC,    KC_BSLS,    XXXXXXX, XXXXXXX,
-  _______, XXXXXXX,    KC_F5,      KC_F6,      KC_F7,   KC_F8,   XXXXXXX,   TG(_GAMING),XXXXXXX, S(KC_LBRC), S(KC_RBRC), MC_GRV,     XXXXXXX, _______,
+  XXXXXXX, XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX,                        KC_MINS, XXXXXXX,    XXXXXXX,    XXXXXXX,    RALT(KC_5), RALT(KC_S),
+  _______, XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX,                        KC_EQL,  XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    RALT(KC_Y),
+  _______, XXXXXXX,    KC_F5,      KC_F6,      KC_F7,   KC_F8,                          MC_QUOT, KC_LBRC,    KC_RBRC,    KC_BSLS,    RALT(KC_P), RALT(KC_Q),
+  _______, XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX,   TG(_GAMING),XXXXXXX, S(KC_LBRC), S(KC_RBRC), MC_GRV,     XXXXXXX,    _______,
                                    _______,    _______, _______, _______,   _______,    _______, _______, _______
 ),
 /* RAISE - navigation
@@ -86,9 +86,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------| PrntSc|    |       |------+------+------+------+------+------|
  * |LShift|      |      |      |      | F12  |-------|    |-------|      | Home |      | End  |      |RShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LGUI | LAlt |LShift| /Space/ /       \Enter/\    |BackSP|      |      |
- *                   |      |      |      |/ LOWER /         \RAISE \   |      |      |      |
- *                   `----------------------------'           '------''--------------------'
+ *                   | LGUI | LAlt |LOWER | /Space  /       \RAISE \    |BackSP|Enter |      |
+ *                   |      |      |      |/       /         \      \   |      |      |      |
+ *                   `----------------------------'           '------''----------------------'
  */
 
 [_RAISE] = LAYOUT(
@@ -108,16 +108,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
  * |      |      |      |      |      |      |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LGUI | LAlt |LShift| /Space/ /       \Enter/\    |BackSP|      |      |
- *                   |      |      |      |/ LOWER /         \RAISE \   |      |      |      |
- *                   `----------------------------'           '------''--------------------'
+ *                   | LGUI | LAlt |LOWER | /Space  /       \RAISE \    |BackSP|Enter |      |
+ *                   |      |      |      |/       /         \      \   |      |      |      |
+ *                   `----------------------------'           '------''----------------------'
  */
 [_ADJUST] = LAYOUT(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                            _______, _______, _______, _______,   _______,  _______, _______, _______
+                            _______, _______, _______, _______,    _______,  _______, _______, _______
 ),
 
 
@@ -133,7 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------| Del   |    |TG GAME|------+------+------+------+------+------|
  * |   B  |LShift|   Z  |   X  |   C  |   V  |-------|    |-------|   N  |   M  |   ,  | Left | Down | Right|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LGUI | LAlt |Space | /Space  /       \Enter \  |BackSP|      |      |
+ *                   | LGUI | LAlt |Space | /Space  /       \      \  |BackSP|Enter |      |
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
@@ -142,7 +142,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_T,  KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
   KC_G,  KC_LCTL,  KC_A,   KC_S,    KC_D,    KC_F,                            KC_H,    KC_J,    KC_K,    KC_L,    KC_UP,   MC_QUOT,
   KC_B,  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,   KC_DEL,    TG(_GAMING),  KC_N,    KC_M,    KC_COMM, KC_LEFT, KC_DOWN, KC_RGHT,
-                           KC_LGUI, KC_LALT, KC_SPC, KC_SPC,    KC_ENT,       KC_BSPC, XXXXXXX, XXXXXXX
+                           KC_LGUI, KC_LALT, KC_SPC, KC_SPC,    XXXXXXX,      KC_BSPC, KC_ENT,   XXXXXXX
 ),
 };
 
