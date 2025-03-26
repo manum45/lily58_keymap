@@ -80,9 +80,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |      |  F1  |  F2  |  F3  |  F4  |  F5  |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |  Tab |  F6  |  F7  |  F8  |  F9  | F10  |                    |      |BckSpc|      | Del  |VolDow|VolUp |
+ * |  Tab |  F6  |  F7  |  F8  |  F9  | F10  |                    |      |BckSpc|  Up  | Del  |VolDow|VolUp |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | LCTRL|      | LAlt |LShift| Ctrl | F11  |-------.    ,-------| Left | Down |  Up  |Right |Pause |Next  |
+ * | LCTRL|      | LAlt |LShift| Ctrl | F11  |-------.    ,-------|      | Left | Down |Right |Pause |Next  |
  * |------+------+------+------+------+------| PrntSc|    |       |------+------+------+------+------+------|
  * |LShift|      |      |      |      | F12  |-------|    |-------|      | Home |      | End  |      |RShift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -93,8 +93,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_RAISE] = LAYOUT(
   XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  _______, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,                      XXXXXXX, KC_BSPC, XXXXXXX, KC_DEL,  KC_VOLD, KC_VOLU,
-  _______, XXXXXXX, KC_LALT, KC_LSFT, KC_LCTL, KC_F11,                      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_MPLY, KC_MNXT,
+  _______, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,                      XXXXXXX, KC_BSPC, KC_UP,   KC_DEL,  KC_VOLD, KC_VOLU,
+  _______, XXXXXXX, KC_LALT, KC_LSFT, KC_LCTL, KC_F11,                      XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_MPLY, KC_MNXT,
   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F12,  KC_PSCR,   XXXXXXX, XXXXXXX, KC_HOME, XXXXXXX, KC_END,  XXXXXXX, _______,
                              _______, _______, _______, _______,   _______,  _______, _______, _______
 ),
