@@ -35,10 +35,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
  [_QWERTY] = LAYOUT(
   KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                   MC_6CIRC,   KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
-  KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                   KC_Y,       KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
+  MO(_NAV), KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                   KC_Y,       KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
   KC_LCTL,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                                   KC_H,       KC_J,    KC_K,    KC_L,    KC_SCLN, MC_QUOT,
   KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,       XXXXXXX,      KC_ENT ,      KC_N,       KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-                             KC_LGUI, MO(_SYM),XXXXXXX,    KC_SPC,       KC_SPC,       KC_BSPC,    MO(_NAV),XXXXXXX
+  KC_LCTL,                   KC_LGUI, MO(_SYM),XXXXXXX,    KC_SPC,       KC_SPC,       KC_BSPC,    MO(_NAV),XXXXXXX
 ),
 /* LOWER - special characters and navigation with mouse */
 [_SYM] = LAYOUT(
@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, KC_F5,      KC_F6,      KC_F7,      KC_F8,   XXXXXXX,                         KC_MINS,    S(KC_9),    S(KC_0),    S(KC_BSLS), XXXXXXX, XXXXXXX,
   _______, KC_F9,      KC_F10,     KC_F11,     KC_F12,  XXXXXXX,                         KC_EQL,     KC_LBRC,    KC_RBRC,    KC_BSLS,    XXXXXXX, XXXXXXX,
   _______, XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX,     MC_QUOT,    S(KC_LBRC), S(KC_RBRC), MC_GRV,     XXXXXXX, _______,
-                                   _______,    _______, _______, _______,   _______,    _______, _______, _______
+  _______,                         _______,    _______, _______, _______,   _______,    _______, _______, _______
 ),
 /* NAV - navigation */
 
@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, XXXXXXX, XXXXXXX, RALT(KC_5),XXXXXXX, XXXXXXX,                     KC_BSPC, XXXXXXX, XXXXXXX, KC_DEL,  XXXXXXX,    RALT(KC_Y), 
   _______, XXXXXXX, KC_LALT, KC_LSFT,   KC_LCTL, XXXXXXX,                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, RALT(KC_P), RALT(KC_Q), 
   _______, XXXXXXX, KC_VOLD, KC_VOLU,   XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX,    _______,
-                             _______,   _______, _______, _______,   _______,  _______, _______, _______
+  _______,                   _______,   _______, _______, _______,   _______,  _______, _______, _______
 ),
 
 };
