@@ -18,7 +18,7 @@ SRC +=  ./lib/layer_state_reader.c \
         ./lib/rgb_state_reader.c \
         ./lib/logo_reader.c \
         ./lib/keylogger.c \
-        ./bongocat_display.c \
+        # ./bongocat_display.c \
         # ./default_display.c \
         # ./lib/mode_icon_reader.c \
         # ./lib/host_led_state_reader.c \
