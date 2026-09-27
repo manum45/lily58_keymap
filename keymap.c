@@ -4,6 +4,7 @@ enum layer_number {
   _QWERTY = 0,
   _SYM,
   _NAV,
+  _NUMPAD
 };
 
 /// TODO:
@@ -31,16 +32,14 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-/* QWERTY */
-
- [_QWERTY] = LAYOUT(
+[_QWERTY] = LAYOUT(
   KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                   MC_6CIRC,   KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
   KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                   KC_Y,       KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
   MO(_NAV), KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                                   KC_H,       KC_J,    KC_K,    KC_L,    KC_SCLN, MC_QUOT,
-  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,       XXXXXXX,      XXXXXXX,      KC_N,       KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+  KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,       MO(_NUMPAD),  XXXXXXX,      KC_N,       KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
   KC_LCTL,                   KC_LGUI, KC_LALT, MO(_SYM),   KC_SPC,       KC_SPC,       MO(_NAV),   KC_RALT, KC_RGUI
 ),
-/* LOWER - special characters and navigation with mouse */
+
 [_SYM] = LAYOUT(
   XXXXXXX, KC_F1,      KC_F2,      KC_F3,      KC_F4,   XXXXXXX,                         XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX,
   _______, KC_F5,      KC_F6,      KC_F7,      KC_F8,   XXXXXXX,                         KC_MINS,    S(KC_9),    S(KC_0),    S(KC_BSLS), XXXXXXX, XXXXXXX,
@@ -48,7 +47,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX,     MC_QUOT,    S(KC_LBRC), S(KC_RBRC), MC_GRV,     XXXXXXX, _______,
   _______,                         _______,    _______, _______, _______,   _______,     _______, _______, _______
 ),
-/* NAV - navigation */
 
 [_NAV] = LAYOUT(
   XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX,   XXXXXXX, KC_PSCR,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    RALT(KC_S), 
@@ -56,6 +54,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, XXXXXXX,    KC_LALT, KC_LSFT,   KC_LCTL, XXXXXXX,                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, RALT(KC_P), RALT(KC_Q), 
   _______, KC_MUTE,    KC_MPLY, KC_VOLU,   XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX,    _______,
   _______,                      _______,   _______, _______, _______,   _______, _______, _______, _______
+),
+
+[_NUMPAD] = LAYOUT(
+  XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX,                     XXXXXXX, KC_NUM,  KC_PSLS, KC_PAST, KC_PMNS, XXXXXXX, 
+  _______, XXXXXXX,    XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX,                     XXXXXXX, KC_KP_7, KC_KP_8, KC_KP_9, KC_PPLS, XXXXXXX, 
+  _______, XXXXXXX,    XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX,                     XXXXXXX, KC_KP_4, KC_KP_5, KC_KP_6, KC_PPLS, XXXXXXX, 
+  _______, XXXXXXX,    XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, _______,   XXXXXXX, XXXXXXX, KC_KP_1, KC_KP_2, KC_KP_3, KC_PENT, XXXXXXX,
+  _______,                      _______,   _______, _______, _______,   _______, _______, KC_KP_0, KC_PDOT
 ),
 
 };
